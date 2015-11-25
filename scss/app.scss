@@ -1,0 +1,218 @@
+$font-stack-alt: "Lucida Grande", sans-serif;
+$font-stack: 'Lobster Two', cursive;
+
+$bg-color: #AADE87;
+$fg-color: #536DFE;
+$gray: #00BCFF;
+$gold: #D4AF37;
+$radius: 15px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body {
+  font: 100% $font-stack;
+  margin: 0;
+  padding: 0;
+  color: $fg-color;
+  background-color: $bg-color;
+}
+
+.joe-page {
+}
+
+.metrics-panel {
+  color: $fg-color;
+  height: 150px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.speed-panel {
+  padding-top: 40px;
+  width: 800px;
+  height: 500px;
+  border: 10px solid $fg-color;
+  background-size: 100%;
+  background-image: url('../img/road.png');
+  text-align: center;
+  margin: auto;
+}
+
+.services-panel {
+  font-size: 16px;
+  padding-top: 20px;
+  width: 1200px;
+  height: 130px;
+  border-bottom: 1px solid $fg-color;
+  text-align: center;
+  margin: auto;
+}
+
+.speed-slider {
+  input {
+    width: 500px;
+  }
+}
+
+.speed-requested {
+  font-size: 50px;
+}
+
+.gauge {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background: $gray;
+  border: 2px solid;
+
+  @include border-radius(10px);
+}
+
+
+.service-instance {
+  display: inline-block;
+  white-space: nowrap;
+  width: 80px;
+  height: 80px;
+  padding-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  background: $gray;
+  border: 2px solid;
+
+  &__digit{
+    font-size: 20pt;
+  }
+
+  &--premium {
+    background: $gold;
+  }
+
+  @include border-radius(10px);
+
+  img {
+    vertical-align: middle;
+    height: 90%;
+    width: 90%;
+  }
+}
+
+
+.action-button {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  border: 5px solid $fg-color;
+  background: $bg-color;
+  vertical-align: top;
+  @include border-radius(50%);
+
+  &:before {    /* create a full-height inline block pseudo=element */
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
+  }
+
+  img {
+    vertical-align: middle;
+    height: 60%;
+    width: 60%;
+  }
+
+  &:hover{
+    color: $bg-color;
+    background: $fg-color;
+    border: 3px solid $bg-color;
+  }
+
+  &:active{
+    color: $fg-color;
+    background: $gray;
+    border: 3px solid $fg-color;
+  }
+}
+
+.speedo-meter {
+  font-size: 15px;
+
+  &__digit{
+    font-size: 28px;
+  }
+}
+
+.power-meter {
+  font-size: 15px;
+
+  &__digit{
+    font-size: 28px;
+  }
+}
+
+.poller {
+}
+
+.cyclist {
+  padding-top: 30px;
+}
+
+.cyclist__animation {
+  height: 280px;
+}
+
+.navigation {
+  border-bottom: $fg-color 2px solid;
+  background: $gray;
+  padding: 10px;
+
+  a {
+    font-size: 14pt;
+    color: $fg-color;
+    text-decoration: none;
+
+    &:hover{
+      color: $bg-color;
+    }
+  }
+}
+
+input[type=range]{
+  -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 8px;
+  background: $fg-color;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 24px;
+  width: 24px;
+  background: $bg-color;
+  border: 2px $fg-color solid;
+  margin-top: -8px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+body *
+{
+  box-sizing: border-box;
+}

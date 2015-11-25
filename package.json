@@ -1,0 +1,43 @@
+{
+  "name": "devoxx-joe-dashboard",
+  "version": "0.0.1",
+  "description": "Devoxx Joe Dashboard",
+  "main": "js/app.js",
+  "dependencies": {
+    "flux": "^2.0.0",
+    "jquery": "^2.1.4",
+    "keymirror": "^0.1.1",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router-component": "^0.27.2",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "browserify": "~6.2.0",
+    "envify": "~3.0.0",
+    "express": "^4.13.3",
+    "http": "0.0.0",
+    "livereload": "^0.3.7",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^3.3.3",
+    "parallelshell": "^2.0.0",
+    "reactify": "^0.15",
+    "serve-static": "^1.10.0",
+    "watchify": "~2.1.0"
+  },
+  "scripts": {
+    "build-sass": "mkdirp static/css && node-sass scss/app.scss -o static/css",
+    "watch-sass": "mkdirp static/css && node-sass -w scss/app.scss -o static/css",
+    "build-js": "mkdirp static/js && browserify js/*.js -o static/js/bundle.js",
+    "watch-js": "mkdirp static/js && watchify -o static/js/bundle.js -v -d .",
+    "build": "parallelshell 'npm run build-sass' 'npm run build-js'",
+    "watch": "parallelshell 'npm run watch-sass' 'npm run watch-js'"
+  },
+  "author": "Bert Swinnen",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}
